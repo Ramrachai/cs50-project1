@@ -8,10 +8,10 @@ const signupPassword = document.querySelector("#signup-password");
 const confirmPassword = document.querySelector("#confirm-password");
 const confirmPassMessage = document.querySelector(".confirm-pass-message");
 
-window.addEventListener("load", () => {
-  // signupForm.classList.add("hide");
-  // confirmPassMessage.classList.toggle("hide");
-});
+// window.addEventListener("load", () => {
+//   // signupForm.classList.add("hide");
+//   // confirmPassMessage.classList.toggle("hide");
+// });
 
 // confirm password validation
 var check = function () {
