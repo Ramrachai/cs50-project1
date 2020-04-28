@@ -1,5 +1,5 @@
 import os
-from flask_session import Session
+# from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from flask import Flask, redirect, render_template, url_for , session, request, flash
@@ -16,8 +16,10 @@ if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")
 
 # Configure session to use filesystem
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
+
+app.permanent_session_lifetime = timedelta(days=5)
+# app.config["SESSION_PERMANENT"] = False
+# app.config["SESSION_TYPE"] = "filesystem"
 app.secret_key = 'hello'
 
 
@@ -75,13 +77,23 @@ def signin_validation():
 
 @app.route('/admin')
 def admin():
-    if 'email' in session:       
+    if 'email' in session:    
+        email = session['email']   
+        # userInfo = {
+        #     'name': session['name'],
+        #     'password': session['password'],
+        #     'email': session ['email'],
+        #     'date': session['date']
+        # }
+        dbquery = db.execute("select * from public.users where email = :email", {'email': email}).fetchall()
         userInfo = {
-            'name': session['name'],
-            'password': session['password'],
-            'email': session ['email'],
-            'date': session['date']
+            'name': dbquery[0][0], 
+            'email': session['email'],
+            'password': dbquery[0][2],
+            'date': dbquery[0][3]
         }
+
+
         return render_template('admin.html', userInfo = userInfo)
 
     else: 
@@ -137,43 +149,39 @@ def signout():
 
 @app.route('/book', methods=['GET', 'POST'])
 def search():
-    if 'email' in session:
-        if request.method == "POST":
-            title = request.form['byTitle']
-            author = request.form['byAuthor']
-            year = request.form['byYear']
-            isbn = request.form['byIsbn']
+    if request.method == "POST":
+        title = request.form['byTitle']
+        author = request.form['byAuthor']
+        year = request.form['byYear']
+        isbn = request.form['byIsbn']
 
-            list = []
-            text = None
-            baseUrl = request.base_url
-            if title:
-                result = db.execute(" SELECT * FROM books WHERE title LIKE '%"+title+"%' ;").fetchall()
-                text = title
-            elif author:
-                result = db.execute(" SELECT * FROM books WHERE author LIKE '%"+author+"%' ;").fetchall()
-                text = author
-            elif year:
-                result = db.execute(" SELECT * FROM books WHERE year = :year", {'year':year}).fetchall()
-                text = year
-            else:
-                result = db.execute(" SELECT * FROM books WHERE isbn LIKE '%"+isbn+"%' ;").fetchall()
-                text = isbn
+        list = []
+        text = None
+        baseUrl = request.base_url
+        if title:
+            result = db.execute(" SELECT * FROM books WHERE title LIKE '%"+title+"%' ;").fetchall()
+            text = title
+        elif author:
+            result = db.execute(" SELECT * FROM books WHERE author LIKE '%"+author+"%' ;").fetchall()
+            text = author
+        elif year:
+            result = db.execute(" SELECT * FROM books WHERE year = :year", {'year':year}).fetchall()
+            text = year
+        else:
+            result = db.execute(" SELECT * FROM books WHERE isbn LIKE '%"+isbn+"%' ;").fetchall()
+            text = isbn
 
-            #if found then save it in list 
-            if result: 
-                for i in result : 
-                    list.append(i)
-                itemsCount = len(list)
-                return render_template('search.html', baseUrl = baseUrl,  items = list, msg = "Yei ! Search result found", text = text , itemsCount = itemsCount)
-                
-            #if not found show a not found message
-            else:
-                return render_template('search.html', msgNo = "Sorry! No books found" , text = text)
-        return render_template ('search.html')
-    else: 
-        flash('Sign to search for books')
-        return render_template('signin.html')
+        #if found then save it in list 
+        if result: 
+            for i in result : 
+                list.append(i)
+            itemsCount = len(list)
+            return render_template('search.html', baseUrl = baseUrl,  items = list, msg = "Yei ! Search result found", text = text , itemsCount = itemsCount)
+            
+        #if not found show a not found message
+        else:
+            return render_template('search.html', msgNo = "Sorry! No books found" , text = text)
+    return render_template ('search.html')
 
 
 @app.route('/book/<string:isbn>', methods = ['GET', 'POST'])
@@ -210,7 +218,7 @@ def singleBook(isbn):
 
     
        
-@app.route("/api/<string:isbn>")
+@app.route("/book/api/<string:isbn>")
 def api(isbn):
     if 'email' in session: 
         data=db.execute("SELECT * FROM public.books WHERE isbn = :isbn",{"isbn":isbn}).fetchone()

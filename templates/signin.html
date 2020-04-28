@@ -7,179 +7,179 @@
 {% endblock %} {%block script%}
 <script src="{{url_for('static', filename ='js/login.js')}}"></script>
 {%endblock%} {% block body %}
-<div class="container login-wrapper">
-  <div class="row" style="height: 100vh; display: flex; align-items: center;">
-    <div class="col-sm-12 col-md-6">
-      <div class="card info mt-4">
-        <img class="card-img-top" src="holder.js/100x180/" alt="" />
-        <div class="card-body">
-          <h4 class="card-title">Book Panda</h4>
-          <p class="card-text">
-            A room without books is like a body without a soul.
-          </p>
-          <img
-            src="{{ url_for('static', filename = 'img/login-panda.png') }}"
-            alt=""
-            class="login-panda"
-          />
-        </div>
+
+<div class="row login-wrapper" style="display: flex; align-items: center;">
+  <div class="col-sm-12 col-md-6">
+    <div class="card info mt-4">
+      <img class="card-img-top" src="holder.js/100x180/" alt="" />
+      <div class="card-body">
+        <h4 class="card-title">Book Panda</h4>
+        <p class="card-text">
+          A room without books is like a body without a soul.
+        </p>
+        <img
+          src="{{ url_for('static', filename = 'img/login-panda.png') }}"
+          alt=""
+          class="login-panda"
+        />
       </div>
     </div>
-
-    <div class="col-sm-12 col-md-6">
-      <div class="card form mt-4">
-        <article class="card-body">
-          <p class="sign-up btns float-right btn btn-lg">
-            Sign up
-          </p>
-          <p class="btns sign-in card-title mb-4 mt-1 btn btn-lg actived">
-            Sign in
-          </p>
-          {% with messages = get_flashed_messages() %} {% if messages %} {% for
-          i in messages %}
-          <div class="alert alert-success" role="alert">
-            <strong>
-              {{i}}
-            </strong>
-          </div>
-          {% endfor %} {%endif%} {%endwith%}
-
-          <!-- sign in form start  -->
-          <div class="form-container">
-            <form
-              id="signinForm"
-              class="signin-form"
-              action="/signin_validation"
-              method="POST"
-            >
-              <div class="form-group">
-                <label>Your email</label>
-                <input
-                  name="signinEmail"
-                  class="form-control"
-                  placeholder="example@abc.com"
-                  type="email"
-                  value="{{ email if email }}"
-                  required
-                />
-              </div>
-              <!-- form-group// -->
-
-              <div class="form-group">
-                <a class="float-right" href="#">Forgot?</a>
-                <label>Your password</label>
-                <input
-                  name="signinPassword"
-                  class="form-control"
-                  placeholder="******"
-                  type="password"
-                  required
-                />
-              </div>
-              <!-- form-group// -->
-
-              <div class="form-group">
-                <div class="checkbox">
-                  <label> <input type="checkbox" /> Save password </label>
-                </div>
-                <!-- checkbox .// -->
-              </div>
-              <!-- form-group// -->
-
-              <div class="form-group">
-                <button type="submit" class="login-btn btn btn-block">
-                  Sign in
-                </button>
-              </div>
-              <!-- form-group// -->
-            </form>
-            <!-- === sign in form finish  ===  -->
-
-            <!-- === register form start ===== -->
-            <form
-              id="signupForm"
-              class="signup-form"
-              method="POST"
-              action="/register"
-            >
-              <div class="form-group">
-                <label>Your Name</label>
-                <input
-                  name="signupName"
-                  class="form-control signup-name"
-                  placeholder="John Smith"
-                  type="text"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label>Your email</label>
-                <input
-                  name="signupEmail"
-                  class="form-control signup-email"
-                  placeholder="example@abc.com"
-                  type="email"
-                  required
-                />
-              </div>
-              <!-- form-group// -->
-              <div class="form-group">
-                <label>Your password</label>
-                <input
-                  name="signupPassword"
-                  id="signup-password"
-                  class="form-control signup-password"
-                  placeholder="******"
-                  type="password"
-                  required
-                  onkeyup="check();"
-                />
-              </div>
-              <div class="form-group">
-                <label>Confirm password</label>
-                <span class="badge confirm-pass-message"> ... </span>
-                <input
-                  id="confirm-password"
-                  class="form-control confirm-password"
-                  placeholder="******"
-                  type="password"
-                  onkeyup="check();"
-                />
-              </div>
-              <!-- form-group// -->
-
-              <div class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" required /> By creating an account,
-                    you agree to the
-                    <a href="http://#">Free Membership Agreement</a> and
-                    <a href="http://#"> Privacy Policy </a>
-                  </label>
-                </div>
-                <!-- checkbox .// -->
-              </div>
-
-              <div class="form-group">
-                <button
-                  type="submit"
-                  id="signupSubmit"
-                  class="login-btn btn btn-block"
-                >
-                  Sign up
-                </button>
-              </div>
-              <!-- form-group// -->
-            </form>
-          </div>
-        </article>
-      </div>
-      <!-- card.// -->
-    </div>
-    <!-- col // -->
   </div>
-  <!-- row // -->
+
+  <div class="col-sm-12 col-md-6">
+    <div class="card form mt-4">
+      <article class="card-body">
+        <p class="sign-up btns float-right btn btn-lg">
+          Sign up
+        </p>
+        <p class="btns sign-in card-title mb-4 mt-1 btn btn-lg actived">
+          Sign in
+        </p>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for i
+        in messages %}
+        <div class="alert alert-success" role="alert">
+          <strong>
+            {{i}}
+          </strong>
+        </div>
+        {% endfor %} {%endif%} {%endwith%}
+
+        <!-- sign in form start  -->
+        <div class="form-container">
+          <form
+            id="signinForm"
+            class="signin-form"
+            action="/signin_validation"
+            method="POST"
+          >
+            <div class="form-group">
+              <label>Your email</label>
+              <input
+                name="signinEmail"
+                class="form-control"
+                placeholder="example@abc.com"
+                type="email"
+                value="{{ email if email }}"
+                required
+              />
+            </div>
+            <!-- form-group// -->
+
+            <div class="form-group">
+              <a class="float-right" href="#">Forgot?</a>
+              <label>Your password</label>
+              <input
+                name="signinPassword"
+                class="form-control"
+                placeholder="******"
+                type="password"
+                required
+              />
+            </div>
+            <!-- form-group// -->
+
+            <div class="form-group">
+              <div class="checkbox">
+                <label> <input type="checkbox" /> Save password </label>
+              </div>
+              <!-- checkbox .// -->
+            </div>
+            <!-- form-group// -->
+
+            <div class="form-group">
+              <button type="submit" class="login-btn btn btn-block">
+                Sign in
+              </button>
+            </div>
+            <!-- form-group// -->
+          </form>
+          <!-- === sign in form finish  ===  -->
+
+          <!-- === register form start ===== -->
+          <form
+            id="signupForm"
+            class="signup-form"
+            method="POST"
+            action="/register"
+          >
+            <div class="form-group">
+              <label>Your Name</label>
+              <input
+                name="signupName"
+                class="form-control signup-name"
+                placeholder="John Smith"
+                type="text"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Your email</label>
+              <input
+                name="signupEmail"
+                class="form-control signup-email"
+                placeholder="example@abc.com"
+                type="email"
+                required
+              />
+            </div>
+            <!-- form-group// -->
+            <div class="form-group">
+              <label>Your password</label>
+              <input
+                name="signupPassword"
+                id="signup-password"
+                class="form-control signup-password"
+                placeholder="******"
+                type="password"
+                required
+                onkeyup="check();"
+              />
+            </div>
+            <div class="form-group">
+              <label>Confirm password</label>
+              <span class="badge confirm-pass-message"> ... </span>
+              <input
+                id="confirm-password"
+                class="form-control confirm-password"
+                placeholder="******"
+                type="password"
+                onkeyup="check();"
+              />
+            </div>
+            <!-- form-group// -->
+
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" required /> By creating an account, you
+                  agree to the
+                  <a href="http://#">Free Membership Agreement</a> and
+                  <a href="http://#"> Privacy Policy </a>
+                </label>
+              </div>
+              <!-- checkbox .// -->
+            </div>
+
+            <div class="form-group">
+              <button
+                type="submit"
+                id="signupSubmit"
+                class="login-btn btn btn-block"
+              >
+                Sign up
+              </button>
+            </div>
+            <!-- form-group// -->
+          </form>
+        </div>
+      </article>
+    </div>
+    <!-- card.// -->
+  </div>
+  <!-- col // -->
 </div>
+<!-- row // -->
+
 <!-- container // -->
 
 {% endblock %}

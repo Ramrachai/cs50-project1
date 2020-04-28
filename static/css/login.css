@@ -14,6 +14,7 @@ html {
 }
 #overlay {
   background: rgba(255, 255, 255, 0.712);
+  height: 100%;
 }
 
 #signinForm input,
@@ -27,9 +28,11 @@ html {
   box-shadow: inset 2px 2px 4px #00000059 !important;
 }
 
-.main-menu {
+.main-menu,
+.footer {
   display: none;
 }
+
 .login-wrapper .card {
   background: transparent;
   border: none;
@@ -114,7 +117,7 @@ html {
   margin: 0 auto;
   padding: 20px;
 }
-
+/* 
 @media (max-width: 768px) {
   .card.form {
     position: absolute;
@@ -123,4 +126,4 @@ html {
     transform: translateX(-50%);
     width: 80%;
   }
-}
+} */

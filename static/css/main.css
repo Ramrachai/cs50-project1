@@ -126,13 +126,9 @@ footer {
   justify-content: space-around;
   font-size: 12px;
 }
+.container-fluid {
+}
 
-@media (max-width: 768px) {
-  footer {
-    position: absolute;
-    bottom: -100%;
-    grid-template-columns: auto;
-    justify-content: center;
-    width: 100%;
-  }
+.footer {
+  margin-top: 50px;
 }
