@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.card {
+  border: none;
+  background: transparent;
+}
+.home-left,
+.home-right {
+  height: 78vh;
+  border-radius: 10px;
+}
+.home-left {
+  background: #fea60b;
+}
+.home-right {
+  background: #ff105f;
+  padding-top: 20px;
+}
+.home-left .list-group-item {
+  font-size: 12px;
+  background: transparent;
+}
+.home-left .card-body {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #545b62;
+  margin-bottom: 5px;
+}
+.account-info {
+}
+.account-info td {
+  padding: 2px 2px;
+  color: #eeeeee;
+  border-top: none;
+  font-size: 12px;
+}
+.account-info td i {
+  color: #1b1b1b;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.message {
+  height: 44px;
+  background: transparent;
+  width: 100%;
+  margin: 10px 0;
+}
+.home-panda {
+  max-width: 75%;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .search input {
+    width: 70% !important;
+  }
+}
+@media (min-width: 800px) {
+  nav.navbar {
+    padding: 6px 8rem;
+  }
+}

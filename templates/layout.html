@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{%block title%} {% endblock %}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- fontawesome -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename ='css/bootstrap/bootstrap.min.css')}}"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename ='css/main.css')}}"
+      crossorigin="anonymous"
+    />
+    {%block style %} {% endblock %}
+    <style></style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="overlay">
+        <!-- main menu -->
+        <nav class="navbar main-menu navbar-expand-sm navbar-light">
+          <a class="navbar-brand" href="#">Book Panda</a>
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-toggle="collapse"
+            data-target="#mainMenu"
+            aria-controls="mainMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('admin')}}"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('search')}}">Search </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btns actived"
+                  href="{{ url_for('signout')}}"
+                  >Sign Out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- main menu finish -->
+        <div class="fixed-menu">
+          <nav class="navbar navbar-light">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#fixedMenu"
+              aria-controls="fixedMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+          <div class="collapse" id="fixedMenu">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('register')}}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('signin')}}">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('signout')}}">Sign out</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('admin')}}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('search')}}">Search</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+          {%block body%} {%endblock%}
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; Ramrachai Marma | All rights reserved 2020</p>
+      <div class="github">
+        <a href=""
+          >Click here for source code
+          <i class="fa fa-github" aria-hidden="true"></i
+        ></a>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script
+      src="{{ url_for('static', filename = 'js/jquery.js')}}"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="{{ url_for('static', filename = 'js/popper.js')}}"></script>
+
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename = 'js/main.js')}}"></script>
+    {%block script %} {%endblock%}
+  </body>
+</html>

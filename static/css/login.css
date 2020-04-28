@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+html {
+}
+#wrapper {
+  height: 100vh;
+  background: url(../img/login-bg.jpg) no-repeat;
+  background-size: cover;
+}
+#overlay {
+  background: rgba(255, 255, 255, 0.712);
+}
+
+#signinForm input,
+#signupForm input {
+  color: #fff !important;
+  background-color: #00000012 !important ;
+  background-clip: padding-box;
+  border: 1px solid #8a8a8a00 !important;
+  border-radius: 30px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-shadow: inset 2px 2px 4px #00000059 !important;
+}
+
+.main-menu {
+  display: none;
+}
+.login-wrapper .card {
+  background: transparent;
+  border: none;
+}
+.login-wrapper .card.form {
+  border: none;
+  box-shadow: -5px -5px 10px 0px #0000000f, 5px 5px 10px #00000017;
+  border-radius: 30px;
+}
+
+.btns {
+  border-radius: 30px;
+  padding: 8px 3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  color: rgb(61, 61, 61);
+}
+.btns:hover {
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  outline: none;
+}
+.actived {
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  box-shadow: inset -2px -2px 5px #0000, inset 2px 2px 5px #0a0a0a96;
+  color: #fff;
+  border: none;
+}
+.actived:hover {
+  color: rgb(61, 61, 61);
+}
+
+/* .form input,
+.form input:actived,
+.form input:focus {
+  border: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: inset -2px -2px 5px #fff, inset 2px 2px 5px #0000001c;
+  border-radius: 30px;
+  color: #ff105f;
+  font-size: 16px;
+} */
+
+.login-btn {
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  box-shadow: -3px -3px 5px #fff, 2px 2px 5px #0a0a0a47;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+}
+.form-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.form {
+  position: relative;
+}
+/* .signup-form {
+  display: none;
+} */
+
+.login-wrapper h4.card-title {
+  font-size: 3rem;
+  text-align: center;
+  color: #292929;
+}
+
+.login-wrapper p.card-text {
+  text-align: center;
+  color: #292929;
+  font-size: 2rem;
+  font-family: "Dancing Script", cursive;
+}
+
+.login-panda {
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .card.form {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+}

@@ -1,0 +1,179 @@
+{%extends "layout.html"%} {%block title%} Book page {%endblock%} {%block body%}
+<!-- messages -->
+<div class="row">
+  <div
+    class="message"
+    style="height: 44px; background: transparent; width: 100%; margin: 10px 0;"
+  >
+    {% with messages = get_flashed_messages() %} {%if messages%} {%for i in
+    messages %}
+    <div class="alert alert-success text-center" role="alert">
+      <strong>{{i}}</strong>
+    </div>
+    {%endfor%} {%endif%} {%endwith%}
+  </div>
+</div>
+<!--message row finish-->
+
+<div class="row mt-4 book-info">
+  <div class="col-sm-12 col-md-3">
+    <div class="book-cover">
+      <img src="{{url_for('static', filename = 'img/panda-home.png')}}" />
+    </div>
+    <a href="#" class="btn btns actived btn-block"> Write a review</a>
+  </div>
+  <div class="col-sm-12 col-md-9">
+    <!-- book info table -->
+    {%if dbdata %}
+
+    <table class="table table-sm book-info-table">
+      <thead class="thead-inverse">
+        <!-- data from database -->
+        {%for i in dbdata%}
+        <tr>
+          <th>Title</th>
+          <th class="title">{{i[2]}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Author</th>
+          <td>{{i[3]}}</td>
+        </tr>
+        <tr>
+          <th>Year</th>
+          <td>{{i[4]}}</td>
+        </tr>
+        <tr>
+          <th>ISBN</th>
+          <td>{{i[1]}}</td>
+        </tr>
+        {%endfor%}
+
+        <!-- data from apicall  -->
+        {%if apidata %}
+        <tr>
+          <th>Total Reviews</th>
+          <td>{{apidata['books'][0]['work_reviews_count']}}</td>
+        </tr>
+        <tr>
+          <th>Total Ratings</th>
+          <td>{{apidata['books'][0]['work_ratings_count']}}</td>
+        </tr>
+        <tr>
+          <th>Average rating</th>
+          <td>{{apidata['books'][0]['average_rating']}}</td>
+        </tr>
+        {%endif%}
+      </tbody>
+    </table>
+    {%endif%}
+  </div>
+</div>
+
+<!-- reviews section -->
+<div class="row mt-5">
+  <div class="col-sm-12 col-md-7">
+    <h2>Reviews</h2>
+    {%if dbreviews %} {%for i in dbreviews %}
+
+    <div class="review-content">
+      <span>Name:</span>
+      <span> {{i[0]}} </span>
+      <span> Rating: </span>
+      <span> {{i[1]}} </span>
+      <span>Date: </span>
+      <span> {{ i[4].strftime("%d %B, %Y") }} </span>
+      <span>Comment:</span>
+      <span> {{i[2]}} </span>
+    </div>
+    {%endfor%} {%else %}
+
+    <h1>No reviews found</h1>
+    {%endif%}
+  </div>
+  <div class="col-sm-12 col-md-5">
+    {%for i in dbdata%}
+    <span class="new-review">Submit your review</span>
+    <form
+      action="{{  url_for('singleBook', isbn= isbn )  }}"
+      method="POST"
+      class="review-form"
+    >
+      {%endfor%}
+      <table class="table">
+        <tr>
+          <td>Rating</td>
+          <td>
+            <input
+              type="radio"
+              class="form-check-input"
+              name="rating"
+              value="1"
+            />
+            * <br />
+            <input
+              type="radio"
+              class="form-check-input"
+              name="rating"
+              value="2"
+            />
+            ** <br />
+            <input
+              type="radio"
+              class="form-check-input"
+              name="rating"
+              value="3"
+            />
+            *** <br />
+            <input
+              type="radio"
+              class="form-check-input"
+              name="rating"
+              value="4"
+            />
+            **** <br />
+            <input
+              type="radio"
+              class="form-check-input"
+              name="rating"
+              value="5"
+            />
+            ***** <br />
+          </td>
+        </tr>
+        <tr>
+          <td>ISBN</td>
+          <td>
+            {%for i in dbdata %}
+            <input
+              type="text"
+              class="form-control disabled"
+              name="isbn"
+              value="{{i[1]}}"
+              readonly
+            />
+            {%endfor%}
+          </td>
+        </tr>
+        <tr>
+          <td>Comment</td>
+          <td>
+            <div class="comment">
+              <textarea
+                placeholder="Write your comment here"
+                class="form-control"
+                name="comment"
+                rows="3"
+              ></textarea>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <button type="submit" class="btn btns actived">Submit</button>
+    </form>
+  </div>
+  {{dbemail}}
+</div>
+
+{{bookinfo}} {%endblock%}
