@@ -9,7 +9,7 @@ const confirmPassword = document.querySelector("#confirm-password");
 const confirmPassMessage = document.querySelector(".confirm-pass-message");
 
 window.addEventListener("load", () => {
-  signupForm.classList.add("hide");
+  // signupForm.classList.add("hide");
   // confirmPassMessage.classList.toggle("hide");
 });
 
