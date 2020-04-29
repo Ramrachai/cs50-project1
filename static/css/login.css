@@ -120,7 +120,7 @@ html {
 @media (max-width: 768px) {
   .form-column {
     position: absolute;
-    bottom: -16%;
+    bottom: -90%;
     background: #ffffff;
   }
 }
