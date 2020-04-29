@@ -59,6 +59,11 @@
   .search input {
     width: 70% !important;
   }
+  .home-left,
+  .home-right {
+    height: auto;
+    padding: 40px;
+  }
 }
 @media (min-width: 800px) {
   nav.navbar {
