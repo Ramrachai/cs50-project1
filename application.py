@@ -234,7 +234,7 @@ def api(isbn):
         "year": data.year,
         "isbn": isbn,
         "review_count": work_ratings_count,
-        "average_score": average_rating
+        "average_rating": average_rating
         }
         # api=json.dumps(x)
         # return render_template("api.json",api=api)
