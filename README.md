@@ -1,8 +1,8 @@
 # Project 1
 
-Course name: Web Programming with Python and JavaScript
-Course no: CS50W
-Note: I made this project to accomplish project1 portion of HarvardX CS50W course
+Course name: Web Programming with Python and JavaScript <br>
+Course no: CS50W <br> 
+Note: I made this project to accomplish project1 portion of HarvardX CS50W course <br>
 
 # Live preview link <a href = 'http://ram-bookpanda.herokuapp.com/' > http://ram-bookpanda.herokuapp.com/ </a>
 
