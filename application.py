@@ -148,6 +148,7 @@ def signout():
 def search():
     if request.method == "POST":
         title = request.form['byTitle']
+        title = title.title()
         author = request.form['byAuthor']
         year = request.form['byYear']
         isbn = request.form['byIsbn']
@@ -242,6 +243,6 @@ def api(isbn):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-    
+
 if __name__ == '__main__':
     app.run(debug =True)
