@@ -36,7 +36,12 @@
       <div id="overlay">
         <!-- main menu -->
         <nav class="navbar main-menu navbar-expand-sm navbar-light">
-          <a class="navbar-brand" href="#">Book Panda</a>
+          <a class="navbar-brand" href="{{url_for('admin')}}">
+            <img
+              src="{{ url_for('static', filename = 'img/logo.png')}}"
+              alt="Logo"
+            />
+          </a>
           <button
             class="navbar-toggler d-lg-none"
             type="button"
@@ -68,42 +73,6 @@
             </ul>
           </div>
         </nav>
-
-        <!-- main menu finish -->
-        <div class="fixed-menu">
-          <nav class="navbar navbar-light">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#fixedMenu"
-              aria-controls="fixedMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </nav>
-          <div class="collapse" id="fixedMenu">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('register')}}">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('signin')}}">Sign In</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('signout')}}">Sign out</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('admin')}}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('search')}}">Search</a>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div class="container">
           {%block body%} {%endblock%}
         </div>

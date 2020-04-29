@@ -20,7 +20,7 @@
     <div class="book-cover">
       <img src="{{url_for('static', filename = 'img/panda-home.png')}}" />
     </div>
-    <a href="#" class="btn btns actived btn-block"> Write a review</a>
+    <a href="#reviewForm" class="btn btns actived btn-block"> Write a review</a>
   </div>
   <div class="col-sm-12 col-md-9">
     <!-- book info table -->
@@ -99,6 +99,7 @@
       action="{{  url_for('singleBook', isbn= isbn )  }}"
       method="POST"
       class="review-form"
+      id="reviewForm"
     >
       {%endfor%}
       <table class="table">

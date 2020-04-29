@@ -59,8 +59,8 @@ style%}
             <td>{{userInfo['date'].strftime("%d %B, %Y") }}</td>
           </tr>
           <tr>
-            <td><i class="fa fa-comment" aria-hidden="true"></i> Review:</td>
-            <td>50</td>
+            <td><i class="fa fa-comment" aria-hidden="true"></i> Reviewed:</td>
+            <td>{{reviewCount}} books</td>
           </tr>
         </tbody>
       </table>
@@ -68,13 +68,28 @@ style%}
     {%endif%}
   </div>
   <div class="col-md-6 col-sm-12 home-center">
-    <!-- show this table if books found  -->
-    <img
-      src="{{url_for('static', filename = 'img/panda-home.png')}}"
-      class="img-fluid home-panda"
-      alt=""
-    />
+    <!-- show this table if reviews found  -->
+    <table class="table table-hover table-bordered" style="font-size: 12px;">
+      <tr>
+        <th>ISBN</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Date</th>
+      </tr>
+      {%if reviewedbooks%} {%for i in reviewedbooks %}
+      <tr>
+        <td>
+          <a href="{{url_for('singleBook', isbn = i[3] )}}"> {{i[3]}}</a>
+          <!-- {{i[3]}} -->
+        </td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{ i[4].strftime("%d %B, %Y") }}</td>
+      </tr>
+      {%endfor%} {%endif%}
+    </table>
   </div>
+  <!-- home-center finish-->
   <div class="col-md-3 col-sm-12 home-right">
     <div class="container">
       <form action="/book" method="POST">

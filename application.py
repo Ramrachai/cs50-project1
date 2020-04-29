@@ -79,22 +79,19 @@ def signin_validation():
 def admin():
     if 'email' in session:    
         email = session['email']   
-        # userInfo = {
-        #     'name': session['name'],
-        #     'password': session['password'],
-        #     'email': session ['email'],
-        #     'date': session['date']
-        # }
-        dbquery = db.execute("select * from public.users where email = :email", {'email': email}).fetchall()
+        db_user_query = db.execute("select * from public.users where email = :email", {'email': email}).fetchall()
+        db_review_query = db.execute(" select * from public.reviews where email = :email", {'email' : email}).fetchall()
+        # root = request.url_root()
         userInfo = {
-            'name': dbquery[0][0], 
+            'name': db_user_query[0][0], 
             'email': session['email'],
-            'password': dbquery[0][2],
-            'date': dbquery[0][3]
+            'password': db_user_query[0][2],
+            'date': db_user_query[0][3]
         }
+        reviewCount = len(db_review_query)
 
 
-        return render_template('admin.html', userInfo = userInfo)
+        return render_template('admin.html', userInfo = userInfo, reviewedbooks = db_review_query , reviewCount= reviewCount )
 
     else: 
         flash('Sign first')
@@ -181,6 +178,9 @@ def search():
         #if not found show a not found message
         else:
             return render_template('search.html', msgNo = "Sorry! No books found" , text = text)
+
+
+   
     return render_template ('search.html')
 
 
