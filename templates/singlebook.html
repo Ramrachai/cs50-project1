@@ -46,7 +46,9 @@
         </tr>
         <tr>
           <th>ISBN</th>
-          <td>{{i[1]}}</td>
+          <td>
+            <a href="{{url_for('api' , isbn  = i[1]) }}"> {{i[1]}}</a>
+          </td>
         </tr>
         {%endfor%}
 
