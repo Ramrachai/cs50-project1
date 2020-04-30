@@ -4,7 +4,7 @@ Course name: Web Programming with Python and JavaScript <br>
 Course no: CS50W <br> 
 Note: I made this project to accomplish project1 portion of HarvardX CS50W course <br>
 
-# Live preview link <a href = 'http://ram-bookpanda.herokuapp.com/' > http://ram-bookpanda.herokuapp.com/ </a>
+## Live preview link <a href = 'http://ram-bookpanda.herokuapp.com/' > http://ram-bookpanda.herokuapp.com/ </a>
 Youtube: <a href = 'https://youtu.be/UmfyOvQLdf4'> https://youtu.be/UmfyOvQLdf4 </a>
 
 ## `App name:` Book panda
@@ -23,7 +23,7 @@ goodreads.com (Thank you for free api)
 Server used:
 heroku.com (Thank you for free web service)
 
-# How to use this app:
+## How to use this app:
 
 1. Clone this repositiory  or Download Source files
 2. Run ```pip install -r requirements.txt``` in your terminal/CMD window to make sure that all of the necessary Python packages (Flask and SQLAlchemy, for instance) are installed.
@@ -34,7 +34,7 @@ heroku.com (Thank you for free web service)
 5. Run ```python application.py``` to run the app
 6. Done
 
-# Features:
+## Features:
 
 **Login:** If user go to root url first it will check if the user is already signed in or not using the session. If not then app will show the login page otherwise app will take the user to the account page without asking him to login everytime. When login page apprears and user input his email and password - app will compare the informations with informations that are already saved in database. If the username and password match then user wiil be logged in and  allowed to go to account page otherwise error message will show.
 
