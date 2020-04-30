@@ -5,9 +5,9 @@ Course no: CS50W <br>
 Note: I made this project to accomplish project1 portion of HarvardX CS50W course <br>
 
 ## Live preview link <a href = 'http://ram-bookpanda.herokuapp.com/' > http://ram-bookpanda.herokuapp.com/ </a>
-Youtube: <a href = 'https://youtu.be/UmfyOvQLdf4'> https://youtu.be/UmfyOvQLdf4 </a>
+## Youtube: <a href = 'https://youtu.be/UmfyOvQLdf4'> https://youtu.be/UmfyOvQLdf4 </a>
 
-## `App name:` Book panda
+# `App name:` Book panda
 
 ``Breif description:`` This is a simple book review app made with flask. To use this website features you have to login first. Anyone can register in this website. After registration and logged into the website people can search for books, view reviews on particular book and can submit his own review.
 
