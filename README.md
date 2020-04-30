@@ -21,14 +21,14 @@ heroku.com (Thank you for free web service)
 
 # How to use this app:
 
-    1. Clone this repositiory  or Download Source files
-    2. Run ```pip install -r requirements.txt``` in your terminal/CMD window to make sure that all of the necessary Python packages (Flask and SQLAlchemy, for instance) are installed.
-    3. Set an environmental variable to connect with database.
-        Varialbe name must be: "DATABASE_URL"
-        Varialbe value will be: "...your database uri ..."
-    4. Run ```python imports.py``` to create user,books and reveiws table in database and to insert 5000 books data from books.csv
-    5. Run ```python application.py``` to run the app
-    6. Done
+1. Clone this repositiory  or Download Source files
+2. Run ```pip install -r requirements.txt``` in your terminal/CMD window to make sure that all of the necessary Python packages (Flask and SQLAlchemy, for instance) are installed.
+3. Set an environmental variable to connect with database.
+    Varialbe name must be: "DATABASE_URL"
+    Varialbe value will be: "...your database uri ..."
+4. Run ```python imports.py``` to create user,books and reveiws table in database and to insert 5000 books data from books.csv
+5. Run ```python application.py``` to run the app
+6. Done
 
 # Features:
 
